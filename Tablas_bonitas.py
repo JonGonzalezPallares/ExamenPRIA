@@ -1,5 +1,3 @@
-#Para usar las prettytable
-
 #Comando: python -m pip install -U prettytable
 
 import prettytable
@@ -23,10 +21,19 @@ with open("datos.json", "r") as read_file:
 
 #Recorremos los datos
 for item in items:
+    #Para mostrar todos los datos 
     #Pasamos la fecha de unix a normal
     item["fecha"] = datetime.datetime.fromtimestamp(int(item["fecha"])).strftime('%Y-%m-%d %H:%M:%S')
     #Añadimos todos los datos a la tabla
     items_table.add_row([item["dni"], item["nombre"], item["apellido"], item["fecha"], int(item["edad"])])
+
+
+    #Para mostrar datos de un usuario en concreto
+    '''if(item["dni"]=="23333A"):
+        #Pasamos la fecha de unix a normal
+        item["fecha"] = datetime.datetime.fromtimestamp(int(item["fecha"])).strftime('%Y-%m-%d %H:%M:%S')
+        #Añadimos todos los datos a la tabla
+        items_table.add_row([item["dni"], item["nombre"], item["apellido"], item["fecha"], int(item["edad"])])'''
 
 #Mostramos por consola la tabla
 print(items_table)
