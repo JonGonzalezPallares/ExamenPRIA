@@ -1,7 +1,7 @@
-from Agregar.py import Agregar
-from Eliminar.py import Eliminar
-from Leer.py import Leer
-from Vista.py import Vista
+from Agregar import Agregar
+from Eliminar import Eliminar
+from Leer import Leer
+from Vista import Vista
 class Main():
     def __init__(self):
         self.agre=Agregar()

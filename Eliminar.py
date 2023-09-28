@@ -1,28 +1,31 @@
 import json
 class Eliminar():
-    
-    def eliminar(self, dni):
+    def comprobarDni(self, dni):
         with open("datos.json", "r") as archivo:
             datos= json.load(archivo)
-        correcto=False
-        x=0
-        for i, dato in enumerate(datos):
-
+        for dato in datos:
             if dato.get('dni')==dni:
-                x=i
-                correcto=True
-                break
+                return True            
         else: 
-            correcto=False
+             return False
+
+    
+    def recogerIndice(self, dni):
+        with open("datos.json", "r") as archivo:
+            datos= json.load(archivo)
         
-        if correcto:
-            elimi=datos.pop(x)
+        x=0
+        for x, dato in enumerate(datos):
+            if dato.get('dni')==dni:
+                return x
+        
+    def eliminar(self, dni):
+        with open("datos.json", "r") as archivo:
+            datos= json.load(archivo)    
+        if self.comprobarDni(dni):
+            elimi=datos.pop(self.recogerIndice(dni))
             with open("datos.json", "w") as archivo:
                 json.dump(datos, archivo)
-
-            print(elimi)
+            return True
         else: 
-            print("Mal")
-
-    """dni=input("dni a Eliminar\n")
-    eliminar(dni)"""
+            return False

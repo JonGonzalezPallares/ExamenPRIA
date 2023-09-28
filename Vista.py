@@ -23,10 +23,13 @@ class Vista():
                              self.agregar.agregar(datos)
                         else:
                              print("Email no valido, retrocediendo...")
+                             self.pintarTeclado()
                     else:
                         print("Ciudad no valida, retrocediendo...")
+                        self.pintarTeclado()
                 else:
                      print("Edad no valida, retrocediendo...")
+                     self.pintarTeclado()
             else:
                  print("nombre no valido, retrocediendo...")
                  self.pintarTeclado()
@@ -34,6 +37,16 @@ class Vista():
             print("Dni no valido, retrocediendo...")
             self.pintarTeclado()
 
+    def eliminarVista(self):
+        dniV=input("Dni de la persona que quieras eliminar\n")
+        comp= self.eliminar.eliminar(dniV)
+        if comp:
+            print("Baja exitosa")
+            self.pintarTeclado()
+        else:
+            print("Ha ocurrido un error a la hora de dar la baja, retrocediendo...")
+            self.pintarTeclado()
+        
              
 
     def elegirAccion(self):
@@ -47,7 +60,7 @@ class Vista():
                     self.agregarVista()
                     pass
                 case "2":
-                   # self.eli.eliminar()
+                    self.eliminarVista()
                     pass
                 case "3": 
                     #Modificar
