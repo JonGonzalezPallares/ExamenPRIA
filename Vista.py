@@ -12,9 +12,9 @@ class Vista():
 
     def agregarVista(self):
         dni = input("Introduzca el dni\n")
-        if len(dni) > 0 and len(dni) == 9:
+        if len(dni) == 9 and dni:
             nombre = input("Introduce el nombre\n")
-            if len(nombre) > 3 and nombre.replace(" ","").isalpha():
+            if len(nombre) > 2 and nombre.replace(" ","").isalpha():
                 edad = input("Introduce la edad\n")
                 if len(edad) > 0 and isinstance(int(edad), int):
                     ciudad = input("Introduce la ciudad\n")
