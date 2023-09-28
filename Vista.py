@@ -11,18 +11,18 @@ class Vista():
         self.leer = Leer()
 
     def agregarVista(self):
-        dniV = input("Introduzca el dni\n")
-        if len(dniV) > 0 and len(dniV) == 9:
-            nombreV = input("Introduce el nombre\n")
-            if len(nombreV) > 3:
-                edadV = input("Introduce la edad\n")
-                if len(edadV) > 0 and isinstance(int(edadV), int):
-                    ciudadV = input("Introduce la ciudad\n")
-                    if len(ciudadV) > 3:
+        dni = input("Introduzca el dni\n")
+        if len(dni) > 0 and len(dni) == 9:
+            nombre = input("Introduce el nombre\n")
+            if len(nombre) > 3:
+                edad = input("Introduce la edad\n")
+                if len(edad) > 0 and isinstance(int(edad), int):
+                    ciudad = input("Introduce la ciudad\n")
+                    if len(ciudad) > 3:
                         emailV = input("Introduce el email\n")
                         if len(emailV) > 3:
-                            datos = {"dni": dniV, "nombre": nombreV,
-                                     "edad": edadV, "ciudad": ciudadV, "email": emailV}
+                            datos = {"dni": dni, "nombre": nombre,
+                                     "edad": edad, "ciudad": ciudad, "email": emailV}
                             self.agregar.agregar(datos)
                         else:
                             print("Email no valido, retrocediendo...")
@@ -48,6 +48,7 @@ class Vista():
                 self.agregarVista()
                 pass
             case "2":
+                self.eliminar.eliminar(0)
                # self.eli.eliminar()
                 pass
             case "3":
