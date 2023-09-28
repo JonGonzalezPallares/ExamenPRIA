@@ -85,4 +85,3 @@ class Vista():
 
 vista1 = Vista()
 vista1.pintarTeclado()
-
