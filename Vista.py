@@ -3,6 +3,18 @@ from Agregar import Agregar
 from Eliminar import Eliminar
 from Leer import Leer
 
+import re
+
+class Validaciones:
+    REGEXP = "[0-9]{8}[A-Z]"
+    DIGITO_CONTROL = "TRWAGMYFPDXBNJZSQVHLCKE"
+    INVALIDOS = {"00000000T", "00000001R", "99999999R"}
+
+    def __init__(self):
+        pass
+
+    def validar_dni(self, dni: str) -> bool:
+        return dni not in self.INVALIDOS and re.match(self.REGEXP, dni) is not None and dni[8] == self.DIGITO_CONTROL[int(dni[0:8]) % 23]
 
 class Vista():
     def __init__(self):
@@ -12,17 +24,17 @@ class Vista():
 
     def agregarVista(self):
         dni = input("Introduzca el dni\n")
-        if len(dni) > 0 and len(dni) == 9:
+        if Validaciones().validar_dni(dni):
             nombre = input("Introduce el nombre\n")
-            if len(nombre) > 3:
+            if len(nombre) > 2 and nombre.replace(" ","").isalpha():
                 edad = input("Introduce la edad\n")
                 if len(edad) > 0 and isinstance(int(edad), int):
                     ciudad = input("Introduce la ciudad\n")
-                    if len(ciudad) > 3:
-                        emailV = input("Introduce el email\n")
-                        if len(emailV) > 3:
-                            datos = {"dni": dni, "nombre": nombre,
-                                     "edad": edad, "ciudad": ciudad, "email": emailV}
+                    if len(ciudad) > 3 and ciudad.replace(" ","").isalpha():
+                        email = input("Introduce el email\n")
+                        if len(email) > 3:
+                            datos = {"dni": dni, "nombre": nombre.title(),
+                                     "edad": edad, "ciudad": ciudad.title(), "email": email}
                             self.agregar.agregar(datos)
                         else:
                             print("Email no valido, retrocediendo...")
@@ -35,7 +47,7 @@ class Vista():
                 self.pintarTeclado()
         else:
             print("Dni no valido, retrocediendo...")
-            self.pintarTeclado()
+            self.pintarTeclado() 
 
     def elegirAccion(self):
         accion = input("¿Cual eliges?")
