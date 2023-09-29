@@ -1,7 +1,7 @@
 import math
-from Agregar import Agregar
-from Eliminar import Eliminar
-from Leer import Leer
+from Funciones.Agregar import Agregar
+from Funciones.Eliminar import Eliminar
+from Funciones.Leer import Leer
 
 import re
 

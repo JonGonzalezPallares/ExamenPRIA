@@ -1,7 +1,7 @@
 #Imports de las clases
-import Agregar
-import Eliminar
-import Leer
+import Funciones.Agregar as Agregar
+import Funciones.Eliminar as Eliminar
+import Funciones.Leer as Leer
 import Vista
 class Main():
     def __init__(self):
