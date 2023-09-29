@@ -27,11 +27,11 @@ class Eliminar():
 
 #Comprobacion que el ID del vuelo es en formato correcto (solo numeros, es EPOCH)
 while True:
-    print("Indique ID del vuelo a eliminar (o escriba salir si desea volver al menú anterior):")
+    print("Indique ID del vuelo a eliminar:")
     vueloid_entrada = input()
-    if vueloid_entrada.isdigit():
+    if vueloid_entrada.isdigit():  #comprobar que es nùmeros
         vueloid = int(vueloid_entrada)
-        break #comprobar que es nùmeros
+        break 
     else:
         print("Introduzca un ID correcto por favor.")  #formato no válido o número incorrecto
 
