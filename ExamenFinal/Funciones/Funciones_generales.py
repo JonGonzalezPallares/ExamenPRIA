@@ -1,6 +1,7 @@
 #Imports
 import json
-import datetime
+import datetime as dt
+from datetime import datetime
 
 #Funciones generales
 class Funciones():
@@ -24,9 +25,9 @@ class Funciones():
             if dato.get('dni') == dni:
                 return x
             
-    #Funcion para validar fechas
-    def validarFecha(fecha_str):
+    #Comprueba si el texto mantiene el estilo de fechas
+    def validar_fecha(test_str):
         try:
-            return datetime.strptime(fecha_str, "%Y-%m-%d %H:%M:%S")
+            return datetime.strptime(test_str, "%Y-%m-%d %H:%M:%S")
         except ValueError:
             return
