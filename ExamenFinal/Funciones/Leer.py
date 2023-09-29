@@ -2,6 +2,7 @@ import prettytable
 from prettytable import ALL as ALL
 import json
 import Funciones.Funciones_generales as fg
+import datetime
 import os
 
 class Leer():
@@ -14,6 +15,7 @@ class Leer():
             items = json.load(read_file)
          #Recorremos los datos
          for item in items:
+            item["fecha"] = datetime.datetime.fromtimestamp(int(item["fecha"])).strftime('%Y-%m-%d %H:%M:%S')
             items_table.add_row([item["fecha"], item["id"], item["destino"], item["plazas"]])
          print(items_table)
       else:
