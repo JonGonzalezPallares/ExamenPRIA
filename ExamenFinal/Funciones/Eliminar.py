@@ -22,13 +22,13 @@ class Eliminar():
             with open("vuelos.json", "w") as archivo:
                 json.dump(datos, archivo)
 
-            print("El vuelo con ID {vueloid} ha sido eliminado.")
+            print("El vuelo con ID " + (vueloid) + "ha sido eliminado.")
         else:
             print("No se encontró un vuelo con el ID proporcionado")
 
 #Comprobacion que el ID del vuelo es en formato correcto (solo numeros es EPOCH)
 while True:
-    vueloid_entrada = int(input("Indique ID del vuelo a eliminar:\n"))
+    vueloid_entrada = input("Indique ID del vuelo a eliminar:\n")
     if vueloid_entrada.isdigit():
         vueloid = int(vueloid_entrada)
         break
@@ -36,4 +36,4 @@ while True:
         print("Introduzca un ID correcto por favor.")
 
 eliminar_obj = Eliminar()
-eliminar_obj.eliminat(vueloid)
+eliminar_obj.eliminar(vueloid)
