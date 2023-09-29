@@ -33,6 +33,6 @@ datos = [
 
 
 #Para guardar datos en un json separado
-with open("datos.json", "w") as write_file:
+with open("datos2.json", "w") as write_file:
     #json.dump usa dos argumentos: el objeto a serializar y el archivo en el que se va a escribir
     json.dump(datos, write_file)
