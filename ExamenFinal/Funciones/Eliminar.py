@@ -3,14 +3,14 @@ import json
 class Eliminar():
 
     def eliminar(self, vueloid):
-        with open("datos.json", "r") as archivo:
+        with open("vuelos.json", "r") as archivo:
             datos = json.load(archivo)
         correcto = False
         x = 0
         for i, dato in enumerate(datos):
             print(i)
             print(dato)
-            if dato.get('ID del Vuelo') == vueloid:
+            if dato.get('id') == vueloid:
                 x = i
                 correcto = True
                 break
@@ -19,12 +19,21 @@ class Eliminar():
 
         if correcto:
             elimi = datos.pop(x)
-            with open("datos.json", "w") as archivo:
+            with open("vuelos.json", "w") as archivo:
                 json.dump(datos, archivo)
 
-            print(elimi)
+            print("El vuelo con ID {vueloid} ha sido eliminado.")
         else:
-            print("Mal")
+            print("No se encontró un vuelo con el ID proporcionado")
 
-    dni=input("dni a Eliminar\n")
-    eliminar(dni)
+#Comprobacion que el ID del vuelo es en formato correcto (solo numeros es EPOCH)
+while True:
+    vueloid_entrada = int(input("Indique ID del vuelo a eliminar:\n"))
+    if vueloid_entrada.isdigit():
+        vueloid = int(vueloid_entrada)
+        break
+    else:
+        print("Introduzca un ID correcto por favor.")
+
+eliminar_obj = Eliminar()
+eliminar_obj.eliminat(vueloid)
