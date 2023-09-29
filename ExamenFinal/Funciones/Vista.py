@@ -1,13 +1,13 @@
-from Insertar import Insertar
-from Eliminar import Eliminar
-'from Leer import Leer'
+from Funciones.Insertar import Insertar
+from Funciones.Eliminar import Eliminar
+from Funciones.Leer import Leer
 
 
 class Vista():
     def __init__(self):
         self.insertar = Insertar.AgregarVuelo
         self.eliminar = Eliminar
-        'self.leer=Leer()'
+        self.leer=Leer.leerDatos
         
     def elegirAccion(self):
         accion = input("¿Cual eliges?")
@@ -15,9 +15,8 @@ class Vista():
         match accion:
             case "0":
                 exit()
-                pass
             case "1":
-                # self.visu.leer()
+                self.leer()
                 pass
             case "2":
                 self.insertar()

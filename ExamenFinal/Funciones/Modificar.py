@@ -1,6 +1,6 @@
 import json
-import Funciones_generales as fg
-import Vista as vist
+import Funciones.Funciones_generales as fg
+import Funciones.Vista as vist
 class Modificar():
     def __init__(self):
         self.comp=fg.Funciones_generales.comprobarDni

@@ -3,7 +3,7 @@ import json
 import calendar
 import datetime as dt
 from datetime import datetime
-import Funciones_generales as fg
+import Funciones.Funciones_generales as fg
 import os
 import time
 
