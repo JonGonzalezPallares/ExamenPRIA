@@ -30,9 +30,6 @@ class Funciones():
         try:
             return datetime.strptime(test_str, "%Y-%m-%d %H:%M:%S")
         except ValueError:
-<<<<<<< Updated upstream
-            return
-=======
             return
         
     def leer_archivo(fichero):
@@ -63,4 +60,3 @@ class Funciones():
               fechas['fecha']= dt.datetime.fromtimestamp(fechas['fecha']).strftime('%Y-%m-%d %H:%M:%S')
               vuelos_ordenados[i]['fecha']=fechas['fecha']  
           return vuelos_ordenados'''
->>>>>>> Stashed changes
