@@ -7,9 +7,6 @@ import Funciones_generales as fg
 import os
 import time
 
-'''vuelos.json -> fecha, id, destino, plazas'''
-#Para cambiar el texto de fecha incorrecta
-prueba = False
 vuelo = {
         "fecha": 0,
         "id": 0,
@@ -17,17 +14,8 @@ vuelo = {
         "plazas": 0
     }
 
-#Funcion para añadir un nuevo vuelo
-def AgregarVuelo():
-    #Recogemos la fecha actual
-    date = dt.datetime.utcnow()
-    #Lo convertimos a tiempo unix
-    utc_time = calendar.timegm(date.utctimetuple())
-    vuelo["id"]=utc_time
-    #Se le pasa la variable de prueba para comprobar el mensaje a mostrar
-    seleccionar_fecha(prueba)
-    numeroDestino(prueba)
-    numeroPlazas(prueba)
+#Para cambiar el texto de fecha incorrecta
+prueba = False
 
 #Funcion para comprobar si la fecha es correcta o no
 def seleccionar_fecha(prueba):
@@ -76,16 +64,27 @@ def numeroPlazas(prueba):
         else:
             prueba=True
 
-AgregarVuelo()
-
-#Para guardar datos en un json
-if(os.path.exists("vuelos.json")):
-    with open("vuelos.json", "r") as read_file:
-        datosTodos = json.load(read_file)
-    datosNuevo = [datosTodos]
-    datosNuevo.append(vuelo)
-    with open("vuelos.json", "w") as archivo:
-        json.dump(datosNuevo, archivo)
-else:
-    with open("vuelos.json", "w") as archivo:
-        json.dump(vuelo, archivo)
+class Insertar:
+    #Funcion para añadir un nuevo vuelo
+    def AgregarVuelo():
+        #Recogemos la fecha actual
+        date = dt.datetime.utcnow()
+        #Lo convertimos a tiempo unix
+        utc_time = calendar.timegm(date.utctimetuple())
+        vuelo["id"]=utc_time
+        #Se le pasa la variable de prueba para comprobar el mensaje a mostrar
+        seleccionar_fecha(prueba)
+        numeroDestino(prueba)
+        numeroPlazas(prueba)
+        
+        #Para guardar datos en un json
+        if(os.path.exists("vuelos.json")):
+            with open("vuelos.json", "r") as read_file:
+                datosTodos = json.load(read_file)
+            datosNuevo = [datosTodos]
+            datosNuevo.append(vuelo)
+            with open("vuelos.json", "w") as archivo:
+                json.dump(datosNuevo, archivo)
+        else:
+            with open("vuelos.json", "w") as archivo:
+                json.dump(vuelo, archivo)

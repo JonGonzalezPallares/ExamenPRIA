@@ -1,6 +1,6 @@
 import json
 
-class Eliminar():
+class Eliminar:
 
     def eliminar(self, vueloid):
         with open("vuelos.json", "r") as archivo:
@@ -25,15 +25,13 @@ class Eliminar():
         else:
             print("No se encontró un vuelo con el ID proporcionado, retrocediendo...")
 
-#Comprobacion que el ID del vuelo es en formato correcto (solo numeros, es EPOCH)
-while True:
-    print("Indique ID del vuelo a eliminar:")
-    vueloid_entrada = input()
-    if vueloid_entrada.isdigit():  #comprobar que es nùmeros
-        vueloid = int(vueloid_entrada)
-        break 
-    else:
-        print("El formato del ID es incorrecto.")  #formato no válido o número incorrecto
-
-eliminar_obj = Eliminar()
-eliminar_obj.eliminar(vueloid)
+    def fasij():
+    #Comprobacion que el ID del vuelo es en formato correcto (solo numeros, es EPOCH)
+        while True:
+            print("Indique ID del vuelo a eliminar:")
+            vueloid_entrada = input()
+            if vueloid_entrada.isdigit():  #comprobar que es nùmeros
+                vueloid = int(vueloid_entrada)
+                break 
+            else:
+                print("El formato del ID es incorrecto.")  #formato no válido o número incorrecto
